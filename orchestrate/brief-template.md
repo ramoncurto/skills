@@ -1,4 +1,4 @@
-# T<nnn> — <slug> — brief for <OPUS 4.8 | GPT-5.5>
+# T<nnn> — <slug> — brief for <OPUS 4.8 | GPT-5.6 Terra>
 
 You are a subagent executing a brief inside this repo. The orchestrator made every
 decision already — your job is faithful execution, not judgment. If anything forces a

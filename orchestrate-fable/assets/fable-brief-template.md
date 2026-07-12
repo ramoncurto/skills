@@ -1,7 +1,7 @@
 # T<nnn> — <slug> — brief for Claude Fable 5
 
-You are Fable 5 executing a brief inside this repository. The GPT-5.6 Sol xhigh
-orchestrator has made every decision already. Execute faithfully; do not redesign. If
+You are Fable 5 executing a brief inside this repository. The active Codex orchestrator
+has made every decision already. Execute faithfully; do not redesign. If
 anything forces a choice this brief does not settle, stop and report `BLOCKED` (§8).
 
 ## 1. Objective

@@ -1,9 +1,9 @@
 ---
 name: orchestrate
-description: Multi-model orchestration — the session model (Fable) is head of coding, makes every decision and writes super-detailed briefs; Opus 4.8 (claude -p) and GPT-5.5 (codex exec) execute them as CLI subagents with blast-radius control. Use when the user says orchestrate, delegate to opus/gpt, dispatch a brief, run it through the pipeline, multi-model workflow, or hands over a multi-file/mechanical task worth delegating (/orchestrate).
+description: Multi-model orchestration — the session model (Fable) is head of coding, makes every decision and writes super-detailed briefs; Opus 4.8 (claude -p) and GPT-5.6 Terra (codex exec) execute them as CLI subagents with blast-radius control. Use when the user says orchestrate, delegate to opus/gpt, dispatch a brief, run it through the pipeline, multi-model workflow, or hands over a multi-file/mechanical task worth delegating (/orchestrate).
 ---
 
-# Orchestrate — Fable decides, Opus 4.8 + GPT-5.5 execute
+# Orchestrate — Fable decides, Opus 4.8 + GPT-5.6 Terra execute
 
 ## When to use
 Implementation work worth delegating: 3+ files, mechanical sweeps, parallel disjoint
@@ -16,7 +16,7 @@ non-trivial diff to the model that did NOT write it.
    `dispatch.sh`, `new-brief.sh`, `brief-template.md`, `review-template.md` from this
    skill's directory into `<repo>/scripts/agents/`, `chmod +x` the two scripts, add
    `.agents/` to `.gitignore`. Verify CLIs: `claude -p "Reply OK" --model claude-opus-4-8`
-   and `codex exec -m gpt-5.5 -s read-only --skip-git-repo-check "Reply OK"`. Identify the
+   and `codex exec -m gpt-5.6-terra -s read-only --skip-git-repo-check "Reply OK"`. Identify the
    project's verify gate (package.json `check`/`test`, Makefile) — briefs must cite it.
    Set project-specific forbidden paths via `ORCH_FORBIDDEN_EXTRA` (regex) if the repo has
    worklogs/baselines subagents must never touch.

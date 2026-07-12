@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# dispatch.sh — run a subagent (Opus 4.8 via claude CLI, GPT-5.5 via codex CLI)
+# dispatch.sh — run a subagent (Opus 4.8 via claude CLI, GPT-5.6 Terra via codex CLI)
 # against a brief file, headless, with logging and a file-delta report.
 #
 # Usage:
 #   bash scripts/agents/dispatch.sh <opus|gpt> <brief-file> [--read-only] [--yolo]
 #
 #   opus         claude -p --model $ORCH_OPUS_MODEL   (default claude-opus-4-8)
-#   gpt          codex exec -m $ORCH_GPT_MODEL        (default gpt-5.5)
+#   gpt          codex exec -m $ORCH_GPT_MODEL        (default gpt-5.6-terra)
 #   --read-only  reviewer/scout mode: no write tools / read-only sandbox
 #   --yolo       opus only: --dangerously-skip-permissions instead of the
 #                curated allowlist (for briefs that need arbitrary commands)
@@ -49,7 +49,7 @@ ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
 OPUS_MODEL="${ORCH_OPUS_MODEL:-claude-opus-4-8}"
-GPT_MODEL="${ORCH_GPT_MODEL:-gpt-5.5}"
+GPT_MODEL="${ORCH_GPT_MODEL:-gpt-5.6-terra}"
 
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
 STEM="$(basename "$BRIEF" .md)"

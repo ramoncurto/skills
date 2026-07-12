@@ -1,6 +1,6 @@
 ---
 name: orchestrate-fable
-description: Multi-model coding orchestration where the active GPT-5.6 Sol Codex session at xhigh reasoning owns diagnosis, decisions, briefs, acceptance, and commits while Claude Fable 5 executes bounded no-decisions briefs across isolated subscription profiles with safe quota fallback. Use when the user says GPT orchestrates and Fable executes, delegate or dispatch to Fable, rotate Fable accounts, reverse orchestrate, run a GPT-to-Fable pipeline, or invokes /orchestrate-fable for substantial implementation or cross-model review (/orchestrate-fable).
+description: Multi-model coding orchestration where the active Codex session owns diagnosis, decisions, briefs, acceptance, and commits while Claude Fable 5 executes bounded no-decisions briefs across isolated subscription profiles with safe quota fallback. Use when the user says GPT orchestrates and Fable executes, delegate or dispatch to Fable, rotate Fable accounts, reverse orchestrate, run a GPT-to-Fable pipeline, or invokes /orchestrate-fable for substantial implementation or cross-model review (/orchestrate-fable).
 ---
 
 # Orchestrate Fable — GPT decides, Fable 5 executes
@@ -12,11 +12,10 @@ directly. Fable writes and GPT audits; send GPT-written changes to Fable for rea
 cross-review.
 
 ## Steps
-1. **Confirm the head.** Require the active Codex session to be `gpt-5.6-sol` with
-   `model_reasoning_effort = "xhigh"`. Configuration is supporting evidence; active
-   session metadata wins. If either differs, disclose it and do not silently substitute
-   the orchestrator. Do not spawn the head with `codex exec`; the local CLI may lag the
-   app's model support.
+1. **Confirm the head.** Use the active Codex session as the orchestrator. Do not require
+   a specific model or reasoning effort. Session metadata is informational only; never
+   use it to block orchestration. Do not spawn the head with `codex exec`; the active
+   session owns the work.
 2. **Bootstrap once per repo.** If `scripts/agents/dispatch-fable.sh` is absent or lacks
    `--account`, refresh this skill's `scripts/*.sh` and `assets/*.md` into
    `scripts/agents/`, then `chmod +x` the two scripts.
