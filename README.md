@@ -29,6 +29,6 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 
 ---
 
-Mirrored from `harness-kit/skills/` in dockialabs (`@a9a9f9e`) — **don't edit here**; edit upstream
+Mirrored from `harness-kit/skills/` in dockialabs (`@b968c56`) — **don't edit here**; edit upstream
 and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
