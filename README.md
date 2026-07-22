@@ -12,26 +12,22 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 
 ## Skills
 
-- `atomic-features`
-- `audit-remediate-to-10`
-- `codebase-design`
-- `diagnosing-bugs`
-- `domain-modeling`
-- `grill-me`
-- `grill-with-docs`
+- `audit`
+- `debug`
+- `design`
+- `features`
+- `grill`
 - `handoff`
-- `improve-codebase-architecture`
 - `orchestrate`
-- `orchestrate-fable`
-- `parallel-goals-for-a-task`
+- `parallel`
+- `prd`
 - `refactor`
-- `security-audit`
+- `security`
+- `skills`
 - `tdd`
-- `to-prd`
-- `writing-great-skills`
 
 ---
 
-Mirrored from `harness-kit/skills/` in dockialabs (`@919e81a`) — **don't edit here**; edit upstream
+Mirrored from `harness-kit/skills/` in dockialabs (`@0b87afd`) — **don't edit here**; edit upstream
 and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).

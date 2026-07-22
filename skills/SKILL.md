@@ -1,6 +1,6 @@
 ---
-name: writing-great-skills
-description: Meta-skill for authoring new skills/loops well — trigger-rich descriptions, concrete steps, a clear done-when, no fluff. Use when adding to or editing this skills kit (/writing-great-skills).
+name: skills
+description: Meta-skill for authoring new skills/loops well — trigger-rich descriptions, concrete steps, a clear done-when, no fluff. Use when adding to or editing this skills kit (formerly writing-great-skills) (/skills).
 ---
 
 # Writing Great Skills

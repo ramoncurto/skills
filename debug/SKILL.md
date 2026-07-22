@@ -1,6 +1,6 @@
 ---
-name: diagnosing-bugs
-description: Structured debugging — reproduce, isolate, hypothesize, test the hypothesis, fix the root cause not the symptom, add a regression test. Use when a test fails or behavior is unexpected.
+name: debug
+description: Structured debugging — reproduce, isolate, hypothesize, test the hypothesis, fix the root cause not the symptom, add a regression test. Use when a test fails or behavior is unexpected (formerly diagnosing-bugs) (/debug).
 ---
 
 # Diagnosing Bugs

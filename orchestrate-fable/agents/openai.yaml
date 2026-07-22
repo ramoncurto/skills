@@ -1,4 +1,0 @@
-interface:
-  display_name: "Orchestrate Fable"
-  short_description: "GPT plans; Fable executes with sticky fallback"
-  default_prompt: "Use $orchestrate-fable to let the active Codex session plan while Fable 5 executes bounded briefs with safe subscription quota fallback."

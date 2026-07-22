@@ -1,4 +1,0 @@
-interface:
-  display_name: "Audit and Remediate to 10"
-  short_description: "Audit, fix, and verify every project area"
-  default_prompt: "Use $audit-remediate-to-10 to audit this project, remediate authorized gaps, and repeat until every applicable area is verified at 10/10 or an explicit blocker remains."

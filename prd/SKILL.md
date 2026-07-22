@@ -1,6 +1,6 @@
 ---
-name: to-prd
-description: Turn a discussion or rough idea into a written product requirements doc — problem, users, scope, non-goals, acceptance criteria. Use before building a feature (/to-prd).
+name: prd
+description: Turn a discussion or rough idea into a written product requirements doc — problem, users, scope, non-goals, acceptance criteria. Use before building a feature (formerly to-prd) (/prd).
 ---
 
 # To PRD
@@ -9,7 +9,7 @@ description: Turn a discussion or rough idea into a written product requirements
 You have a rough idea or a back-and-forth discussion and you're about to build a feature. Use this to crystallize the conversation into a durable, reviewable spec before implementation.
 
 ## Steps
-1. **Gather the raw material.** Pull from the discussion, any clarifying answers, and relevant docs/code. If key questions are still open, resolve them first (see grill-me / grill-with-docs).
+1. **Gather the raw material.** Pull from the discussion, any clarifying answers, and relevant docs/code. If key questions are still open, resolve them first (see /grill).
 2. **Write the PRD** with these sections, kept tight:
    - **Problem** — what's wrong today and why it matters. One paragraph.
    - **Users / context** — who is affected and the scenario they're in.

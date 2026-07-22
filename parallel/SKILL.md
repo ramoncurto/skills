@@ -1,6 +1,6 @@
 ---
-name: parallel-goals-for-a-task
-description: Turn a task into self-directed parallel agent work — write your own /goal, then fan out independent, non-overlapping subgoals to concurrent agents and synthesize the results yourself. Use when a request is big or multi-part enough to divide and conquer with subagents (build, implement, fan out, orchestrate, parallel agents, coordinate subagents).
+name: parallel
+description: Turn a task into self-directed parallel agent work — write your own /goal, then fan out independent, non-overlapping subgoals to concurrent agents and synthesize the results yourself. Use when a request is big or multi-part enough to divide and conquer with subagents (build, implement, fan out, orchestrate, parallel agents, coordinate subagents) (formerly parallel-goals-for-a-task) (/parallel).
 source: anthropic
 ---
 

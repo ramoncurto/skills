@@ -1,6 +1,6 @@
 ---
-name: atomic-features
-description: Turn a vague, overall product idea into a per-page atomic-features spec, then refine it pass-by-pass until it's detailed and build-ready. Use when you only have a rough idea and need to develop the pages + features your build agents will follow — or to keep sharpening an existing draft (/atomic-features).
+name: features
+description: Turn a vague, overall product idea into a per-page atomic-features spec, then refine it pass-by-pass until it's detailed and build-ready. Use when you only have a rough idea and need to develop the pages + features your build agents will follow — or to keep sharpening an existing draft (formerly atomic-features) (/features).
 ---
 
 # Atomic Features
