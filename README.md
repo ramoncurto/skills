@@ -24,12 +24,13 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 - `orchestrate`
 - `orchestrate-fable`
 - `parallel-goals-for-a-task`
+- `refactor`
 - `tdd`
 - `to-prd`
 - `writing-great-skills`
 
 ---
 
-Mirrored from `harness-kit/skills/` in dockialabs (`@b544fda`) — **don't edit here**; edit upstream
+Mirrored from `harness-kit/skills/` in dockialabs (`@738e3de`) — **don't edit here**; edit upstream
 and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
