@@ -1,5 +1,6 @@
 ---
 name: design
+summary: "Agree on clear names and a clean shape for a module before writing the code."
 description: Design before coding — first pin the domain language (one precise name per concept, relationships, invariants), then shape the module (boundaries, public interface, data flow, dependencies). Use when starting a non-trivial new module or subsystem, when concepts are fuzzy or the same thing has several names, or before typing into a blank file (formerly codebase-design + domain-modeling) (/design).
 ---
 

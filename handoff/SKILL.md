@@ -1,5 +1,6 @@
 ---
 name: handoff
+summary: "Leave clean notes so the next person or session can pick up right where you left off."
 description: Produce a clean handoff for the next session or person — current state, what's done, what's left, gotchas, and how to verify. Use when ending a work session or transferring work (/handoff).
 ---
 

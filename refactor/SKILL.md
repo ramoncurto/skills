@@ -1,5 +1,6 @@
 ---
 name: refactor
+summary: "Tidy up code so it's easier to read and grow, without changing what it does."
 description: Refactor code to be more scalable, maintainable, modular, and easier to understand — best practices, clearer architecture, less duplication, separation of concerns — while preserving behavior, then explain the significant changes and trade-offs. Works on targeted code (a file/module) or as a periodic whole-codebase architecture sweep. Use when the user says refactor, clean up, simplify this module, reduce complexity/duplication, improve architecture or maintainability (formerly refactor + improve-codebase-architecture) (/refactor).
 ---
 

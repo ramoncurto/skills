@@ -1,5 +1,6 @@
 ---
 name: orchestrate
+summary: "Split coding work between AI models — one directs, the others execute, and you stay in control."
 description: Multi-model orchestration with explicit roles — say who directs and who executes (e.g. "/orchestrate fable→opus", "/orchestrate gpt→fable", "opus executes", "gpt orchestrates and fable executes"). The director owns every decision, writes no-decisions briefs, audits diffs, runs the gate, and commits; executors (claude -p / codex exec) implement briefs with blast-radius control. Use when the user says orchestrate, delegate to opus/gpt/fable, dispatch a brief, multi-model workflow, rotate accounts, or hands over a multi-file/mechanical task (formerly orchestrate + orchestrate-fable) (/orchestrate).
 ---
 

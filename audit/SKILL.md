@@ -1,5 +1,6 @@
 ---
 name: audit
+summary: "Score the whole project area by area, then keep fixing and re-testing until everything earns a 10."
 description: Run an evidence-based whole-project audit-remediation loop that discovers applicable areas, scores each 0-10, implements authorized fixes, tests, independently re-audits, and repeats until every area is verified at 10/10 or a real approval or external blocker remains. Use when the user asks to audit a project thoroughly, score all areas, make it 10/10, fix everything, prepare for production or growth, or keep implementing and retesting until clean (formerly audit-remediate-to-10) (/audit).
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: grill
+summary: "Get asked the hard questions up front, so the plan has no surprises later."
 description: Interrogate before building — sharp clarifying questions until a vague request, or a plan you want stress-tested, is unambiguous; grounded in the project's real docs and code when inside a codebase. Use at the start of an underspecified task, when the user says grill me, stress-test this plan, poke holes, or any 'grill' phrase (formerly grill-me / grill-with-docs / grilling) (/grill).
 ---
 

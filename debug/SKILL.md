@@ -1,5 +1,6 @@
 ---
 name: debug
+summary: "Hunt a bug down properly — reproduce it, find the real cause, fix that, and lock it in with a test."
 description: Structured debugging — reproduce, isolate, hypothesize, test the hypothesis, fix the root cause not the symptom, add a regression test. Use when a test fails or behavior is unexpected (formerly diagnosing-bugs) (/debug).
 ---
 

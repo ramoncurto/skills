@@ -1,5 +1,6 @@
 ---
 name: prd
+summary: "Write down what you're building, for whom, and when it's done — before building it."
 description: Turn a discussion or rough idea into a written product requirements doc — problem, users, scope, non-goals, acceptance criteria. Use before building a feature (formerly to-prd) (/prd).
 ---
 

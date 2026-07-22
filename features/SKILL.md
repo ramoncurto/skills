@@ -1,5 +1,6 @@
 ---
 name: features
+summary: "Turn a rough product idea into a page-by-page feature list that's ready to build."
 description: Turn a vague, overall product idea into a per-page atomic-features spec, then refine it pass-by-pass until it's detailed and build-ready. Use when you only have a rough idea and need to develop the pages + features your build agents will follow — or to keep sharpening an existing draft (formerly atomic-features) (/features).
 ---
 

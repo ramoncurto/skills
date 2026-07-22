@@ -1,5 +1,6 @@
 ---
 name: tdd
+summary: "Write the failing test first, make it pass, then clean up."
 description: Drive red→green→refactor — write a failing test first, minimal code to pass, then refactor with tests green. Use when implementing a feature or fixing a bug with testable behavior.
 ---
 

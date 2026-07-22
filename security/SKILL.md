@@ -1,5 +1,6 @@
 ---
 name: security
+summary: "Check your API endpoints for security holes and lock them down."
 description: Audit the security of your own API endpoints / route handlers and close vulnerabilities — missing auth, broken access control (IDOR), injection, missing input validation, rate-limit/DoS gaps, secret and info leakage, SSRF, open redirect, CSRF on state-changing routes. Reports findings ranked by severity with evidence, then applies authorized fixes with regression tests. Use when the user says audit my endpoints, check my API for vulnerabilities, "asegura que no tengan vulnerabilidades", security review of routes, is this endpoint safe (formerly security-audit) (/security). Defensive, authorized-code-only.
 ---
 
