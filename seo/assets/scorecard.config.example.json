@@ -1,50 +1,27 @@
 {
-  "$doc": "Template for the /seo scorecard (mode C). Copy to the project (scripts/seo/scorecard.config.json, or anywhere the repo doesn't ignore — pass --config), then: set base, replace samples with one real URL per template, tune thresholds to ~today's numbers so improvements show, and add project-specific guardrails from its cost/infra rules. Live checks fetch the deployed site as Googlebot; static checks run against the working tree. Guardrail failure = REVERT, always.",
-  "base": "https://example.com",
-  "sitemapIndex": "/sitemap.xml",
-  "maxSitemapFiles": 40,
-  "hreflangSample": 2,
+  "$doc": "Example only. Copy it, replace every example URL and command with authorized project evidence before execution. Diagnostics observe; eligibility and guardrails fail closed.",
+  "schemaVersion": 1,
+  "exampleOnly": true,
+  "base": "https://example.invalid",
   "out": ".agents/runs/seo-scorecard",
+  "timeoutSec": 20,
+  "sitemapIndex": "/sitemap.xml",
+  "maxSitemapFiles": 20,
   "samples": [
-    { "path": "/", "template": "home" },
-    { "path": "/REPLACE-with-a-listing-or-hub-url", "template": "hub" },
-    { "path": "/REPLACE-with-a-detail-or-item-url", "template": "item" },
-    { "path": "/blog", "template": "blog" }
+    { "path": "/", "template": "home", "expectedIndexable": true },
+    { "path": "/example-content", "template": "content", "expectedIndexable": true }
   ],
   "thresholds": {
-    "home": { "maxRawKB": 250, "maxRscShare": 0.45, "minWords": 400 },
-    "hub": { "maxRawKB": 450, "maxRscShare": 0.45, "minWords": 300 },
-    "item": { "maxRawKB": 150, "maxRscShare": 0.40, "minWords": 300 },
-    "blog": { "maxRawKB": 250, "maxRscShare": 0.45, "minWords": 300 },
-    "default": { "maxRawKB": 300, "maxRscShare": 0.45, "minWords": 200 }
-  },
-  "jsonld": {
-    "home": ["Organization", "WebSite"],
-    "hub": ["CollectionPage|ItemList", "BreadcrumbList"],
-    "item": ["Product|Event|SportsEvent|Article|Recipe", "BreadcrumbList"],
-    "blog": ["CollectionPage|Blog", "BreadcrumbList"]
+    "$note": "Record project-specific measurements as diagnostics; do not use generic word-count or payload thresholds as universal eligibility rules.",
+    "default": { "maxRawKB": 300, "minTextCharacters": 500 }
   },
   "staticChecks": [
     {
-      "$note": "Cost guardrail — no cache window may shrink vs the base ref, no crawlable page may go force-dynamic. Ships with the skill.",
-      "name": "no cache window shortened vs origin/main; no force-dynamic on crawlable pages",
-      "cmd": "bash ~/.claude/skills/seo/scripts/check-revalidate-vs-main.sh origin/main src",
-      "guardrail": true
-    },
-    {
-      "$note": "Replace with the project's own robots invariant (blocked scraper bots, allowed AI bots…).",
-      "name": "robots keeps its scraper/AI-bot policy",
-      "cmd": "test -f src/app/robots.ts || test -f public/robots.txt",
-      "guardrail": true
-    },
-    {
-      "$note": "Image optimizer must stay an explicit allowlist (open proxy = cost + SSRF).",
-      "name": "no wildcard image host",
-      "cmd": "! grep -E \"hostname: '\\\\*'\" next.config.* 2>/dev/null | grep -q .",
-      "guardrail": true
-    },
-    { "name": "list links do not prefetch", "cmd": "grep -rq 'prefetch={false}' src/components 2>/dev/null" },
-    { "name": "project gate is green", "cmd": "npm run check >/dev/null 2>&1 || npm test >/dev/null 2>&1", "timeoutSec": 1200 }
+      "$note": "Replace with an authorized project command. This intentionally has no executable placeholder.",
+      "name": "replace with a project-specific eligibility check",
+      "cmd": "false",
+      "class": "eligibility"
+    }
   ],
-  "weights": { "live": 1, "static": 2, "guardrail": 5 }
+  "weights": { "live": 1, "static": 1, "guardrail": 5 }
 }

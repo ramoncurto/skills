@@ -1,0 +1,388 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ramoncurto/skills/seo/report.schema.json",
+  "title": "SEO and GEO persisted artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifactKind", "schemaVersion", "contractVersion", "status", "verdict", "verdictDetail",
+    "exitClassification", "generatedAt", "observedAt", "evidenceLevel", "evidence", "limitations",
+    "configHash", "sourceRevision", "checks", "failures", "unknowns", "delta"
+  ],
+  "properties": {
+    "artifactKind": { "type": "string", "enum": ["evidence-report", "scorecard"] },
+    "schemaVersion": { "const": "1" },
+    "contractVersion": { "type": "string", "minLength": 1 },
+    "status": { "$ref": "#/$defs/status" },
+    "verdict": { "type": "string" },
+    "verdictDetail": { "type": ["string", "null"] },
+    "exitClassification": { "type": "string", "enum": ["PASS", "FAIL", "UNKNOWN", "N/A", "REVERT"] },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "observedAt": { "type": ["string", "null"], "format": "date-time" },
+    "evidenceLevel": { "$ref": "#/$defs/evidenceLevel" },
+    "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "configHash": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+    "sourceRevision": { "$ref": "#/$defs/sourceRevision" },
+    "checks": { "type": "array", "items": { "$ref": "#/$defs/check" } },
+    "failures": { "type": "array", "items": { "type": "string" } },
+    "unknowns": { "type": "array", "items": { "type": "string" } },
+    "delta": { "type": ["number", "null"] },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner", "environment", "deployment", "locale", "url", "property", "cohort", "denominator",
+        "timestamp", "observedAt", "source", "evidence", "declared_indexable", "http_fetchable",
+        "rendered_content_available", "canonical_consistent", "engine_indexed", "search_visible", "ai_cited",
+        "referred", "converted"
+      ],
+      "properties": {
+        "owner": { "type": "string", "minLength": 1 },
+        "environment": { "type": "string", "enum": ["repository", "local", "preview", "production", "unknown"] },
+        "deployment": { "type": ["string", "null"] },
+        "locale": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "property": { "type": "string", "minLength": 1 },
+        "cohort": { "type": "string", "minLength": 1 },
+        "denominator": { "type": ["number", "string", "null"] },
+        "timestamp": { "type": ["string", "null"], "format": "date-time" },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "source": { "type": ["string", "null"] },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+        "declared_indexable": { "$ref": "#/$defs/claim" },
+        "http_fetchable": { "$ref": "#/$defs/claim" },
+        "rendered_content_available": { "$ref": "#/$defs/claim" },
+        "canonical_consistent": { "$ref": "#/$defs/claim" },
+        "engine_indexed": { "$ref": "#/$defs/claim" },
+        "search_visible": { "$ref": "#/$defs/claim" },
+        "ai_cited": { "$ref": "#/$defs/claim" },
+        "referred": { "$ref": "#/$defs/claim" },
+        "converted": { "$ref": "#/$defs/claim" }
+      }
+    },
+    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } },
+    "geoFunnel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["crawlerAccess", "eligibilityIndexing", "impressionsVisibility", "citation", "referral", "conversionRetention"],
+      "properties": {
+        "crawlerAccess": { "$ref": "#/$defs/funnelStage" },
+        "eligibilityIndexing": { "$ref": "#/$defs/funnelStage" },
+        "impressionsVisibility": { "$ref": "#/$defs/funnelStage" },
+        "citation": { "$ref": "#/$defs/funnelStage" },
+        "referral": { "$ref": "#/$defs/funnelStage" },
+        "conversionRetention": { "$ref": "#/$defs/funnelStage" }
+      }
+    },
+    "base": { "type": ["string", "null"], "format": "uri" },
+    "configVersion": { "type": "string" },
+    "score": { "type": "number" },
+    "requiredScore": { "type": "number" },
+    "diagnosticScore": { "type": "number" },
+    "evidenceSummary": { "$ref": "#/$defs/evidenceSummary" },
+    "exitCode": { "type": "integer", "enum": [0, 1, 2, 3] },
+    "passed": { "type": "integer" },
+    "total": { "type": "integer" },
+    "guardrailFails": { "type": "array", "items": { "type": "string" } }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "artifactKind": { "const": "evidence-report" },
+        "verdict": { "$ref": "#/$defs/verdicts/evidenceReport" }
+      },
+      "required": ["artifactKind", "readiness", "sources", "geoFunnel"]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "artifactKind": { "const": "scorecard" },
+        "verdict": { "$ref": "#/$defs/verdicts/scorecard" }
+      },
+      "required": [
+        "artifactKind", "base", "configVersion", "score", "requiredScore", "diagnosticScore",
+        "evidenceSummary", "exitCode", "passed", "total", "guardrailFails"
+      ],
+      "oneOf": [
+        {
+          "properties": {
+            "status": { "const": "PASS" },
+            "verdict": { "enum": ["BASELINE", "KEEP", "NEUTRAL"] },
+            "exitClassification": { "const": "PASS" },
+            "exitCode": { "const": 0 }
+          },
+          "required": ["status", "verdict", "exitClassification", "exitCode"]
+        },
+        {
+          "properties": {
+            "status": { "const": "FAIL" },
+            "verdict": { "const": "FAIL" },
+            "exitClassification": { "const": "FAIL" },
+            "exitCode": { "const": 2 }
+          },
+          "required": ["status", "verdict", "exitClassification", "exitCode"]
+        },
+        {
+          "properties": {
+            "status": { "const": "FAIL" },
+            "verdict": { "const": "REVERT" },
+            "exitClassification": { "const": "REVERT" },
+            "exitCode": { "const": 2 }
+          },
+          "required": ["status", "verdict", "exitClassification", "exitCode"]
+        },
+        {
+          "properties": {
+            "status": { "const": "UNKNOWN" },
+            "verdict": { "const": "UNKNOWN" },
+            "exitClassification": { "const": "UNKNOWN" },
+            "exitCode": { "const": 3 }
+          },
+          "required": ["status", "verdict", "exitClassification", "exitCode"]
+        }
+      ]
+    }
+  ],
+  "$defs": {
+    "status": { "type": "string", "enum": ["PASS", "FAIL", "UNKNOWN", "N/A"] },
+    "evidenceLevel": { "type": "string", "enum": ["E0", "E1", "E2", "E3", "E4", "E5", "E6"] },
+    "verdicts": {
+      "evidenceReport": { "type": "string", "enum": ["PASS", "FAIL", "UNKNOWN", "N/A"] },
+      "scorecard": { "type": "string", "enum": ["BASELINE", "KEEP", "REVERT", "NEUTRAL", "FAIL", "UNKNOWN"] }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "source", "observedAt"],
+      "properties": {
+        "level": { "$ref": "#/$defs/evidenceLevel" },
+        "source": { "type": "string", "minLength": 1 },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "detail": { "type": "string" }
+      },
+      "oneOf": [
+        {
+          "properties": { "level": { "const": "E0" } },
+          "required": ["level"]
+        },
+        {
+          "properties": {
+            "level": { "enum": ["E1", "E2", "E3", "E4", "E5", "E6"] },
+            "observedAt": { "type": "string", "format": "date-time" }
+          },
+          "required": ["level", "observedAt"]
+        }
+      ]
+    },
+    "sourceRevision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "dirty"],
+      "properties": { "revision": { "type": ["string", "null"] }, "dirty": { "type": ["boolean", "null"] } }
+    },
+    "check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["group", "name", "class", "guardrail", "status", "pass", "detail", "evidenceLevel", "source", "observedAt"],
+      "properties": {
+        "group": { "type": "string", "enum": ["static", "live"] },
+        "name": { "type": "string", "minLength": 1 },
+        "class": { "type": "string", "enum": ["eligibility", "recommendation", "guardrail", "diagnostic"] },
+        "guardrail": { "type": "boolean" },
+        "status": { "$ref": "#/$defs/status" },
+        "pass": { "type": "boolean" },
+        "detail": { "type": "string" },
+        "evidenceLevel": { "$ref": "#/$defs/evidenceLevel" },
+        "source": { "type": "string", "minLength": 1 },
+        "observedAt": { "type": "string", "format": "date-time" }
+      },
+      "oneOf": [
+        {
+          "properties": { "group": { "const": "static" }, "evidenceLevel": { "const": "E1" } },
+          "required": ["group", "evidenceLevel"]
+        },
+        {
+          "properties": { "group": { "const": "live" }, "evidenceLevel": { "const": "E2" } },
+          "required": ["group", "evidenceLevel"]
+        }
+      ],
+      "allOf": [
+        {
+          "oneOf": [
+            {
+              "properties": { "status": { "const": "PASS" }, "pass": { "const": true } },
+              "required": ["status", "pass"]
+            },
+            {
+              "properties": { "status": { "enum": ["FAIL", "UNKNOWN", "N/A"] }, "pass": { "const": false } },
+              "required": ["status", "pass"]
+            }
+          ]
+        },
+        {
+          "oneOf": [
+            {
+              "properties": { "class": { "const": "guardrail" }, "guardrail": { "const": true } },
+              "required": ["class", "guardrail"]
+            },
+            {
+              "properties": { "class": { "enum": ["eligibility", "recommendation", "diagnostic"] }, "guardrail": { "const": false } },
+              "required": ["class", "guardrail"]
+            }
+          ]
+        }
+      ]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidenceLevel", "source", "observedAt", "cohort", "denominator"],
+      "properties": {
+        "status": { "$ref": "#/$defs/status" },
+        "evidenceLevel": { "$ref": "#/$defs/evidenceLevel" },
+        "source": { "type": ["string", "null"] },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "cohort": { "type": "string" },
+        "denominator": { "type": ["number", "string", "null"] },
+        "value": {}
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "status": { "enum": ["PASS", "FAIL", "UNKNOWN", "N/A"] },
+            "evidenceLevel": { "enum": ["E1", "E2", "E3", "E4", "E5", "E6"] },
+            "source": { "type": "string", "minLength": 1 },
+            "observedAt": { "type": "string", "format": "date-time" }
+          },
+          "required": ["status", "evidenceLevel", "source", "observedAt"]
+        },
+        {
+          "properties": {
+            "status": { "enum": ["UNKNOWN", "N/A"] },
+            "evidenceLevel": { "const": "E0" },
+            "source": { "const": null },
+            "observedAt": { "const": null }
+          },
+          "required": ["status", "evidenceLevel", "source", "observedAt"]
+        },
+        {
+          "properties": {
+            "status": { "enum": ["UNKNOWN", "N/A"] },
+            "evidenceLevel": { "const": "E0" },
+            "source": { "type": "string", "minLength": 1 },
+            "observedAt": { "type": "string", "format": "date-time" }
+          },
+          "required": ["status", "evidenceLevel", "source", "observedAt"]
+        }
+      ]
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner", "environment", "deployment", "locale", "url", "property", "cohort", "denominator",
+        "timestamp", "observedAt", "source", "evidence", "declared_indexable", "http_fetchable",
+        "rendered_content_available", "canonical_consistent", "engine_indexed", "search_visible", "ai_cited",
+        "referred", "converted"
+      ],
+      "properties": {
+        "owner": { "type": "string", "minLength": 1 },
+        "environment": { "type": "string", "enum": ["repository", "local", "preview", "production", "unknown"] },
+        "deployment": { "type": ["string", "null"] },
+        "locale": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "property": { "type": "string", "minLength": 1 },
+        "cohort": { "type": "string", "minLength": 1 },
+        "denominator": { "type": ["number", "string", "null"] },
+        "timestamp": { "type": ["string", "null"], "format": "date-time" },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "source": { "type": ["string", "null"] },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+        "declared_indexable": { "$ref": "#/$defs/claim" },
+        "http_fetchable": { "$ref": "#/$defs/claim" },
+        "rendered_content_available": { "$ref": "#/$defs/claim" },
+        "canonical_consistent": { "$ref": "#/$defs/claim" },
+        "engine_indexed": { "$ref": "#/$defs/claim" },
+        "search_visible": { "$ref": "#/$defs/claim" },
+        "ai_cited": { "$ref": "#/$defs/claim" },
+        "referred": { "$ref": "#/$defs/claim" },
+        "converted": { "$ref": "#/$defs/claim" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publisher", "directUrl", "supportedClaim", "verifiedAt"],
+      "properties": {
+        "publisher": { "type": "string", "minLength": 1 },
+        "directUrl": { "type": "string", "format": "uri" },
+        "supportedClaim": { "type": "string", "minLength": 1 },
+        "verifiedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "geoFunnel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["crawlerAccess", "eligibilityIndexing", "impressionsVisibility", "citation", "referral", "conversionRetention"],
+      "properties": {
+        "crawlerAccess": { "$ref": "#/$defs/funnelStage" },
+        "eligibilityIndexing": { "$ref": "#/$defs/funnelStage" },
+        "impressionsVisibility": { "$ref": "#/$defs/funnelStage" },
+        "citation": { "$ref": "#/$defs/funnelStage" },
+        "referral": { "$ref": "#/$defs/funnelStage" },
+        "conversionRetention": { "$ref": "#/$defs/funnelStage" }
+      }
+    },
+    "funnelStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidenceLevel", "numerator", "denominator", "cohort", "source", "observedAt"],
+      "properties": {
+        "status": { "$ref": "#/$defs/status" },
+        "evidenceLevel": { "$ref": "#/$defs/evidenceLevel" },
+        "numerator": { "type": ["number", "null"] },
+        "denominator": { "type": ["number", "null"] },
+        "cohort": { "type": "string" },
+        "source": { "type": ["string", "null"] },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "status": { "enum": ["PASS", "FAIL", "UNKNOWN", "N/A"] },
+            "evidenceLevel": { "enum": ["E1", "E2", "E3", "E4", "E5", "E6"] },
+            "source": { "type": "string", "minLength": 1 },
+            "observedAt": { "type": "string", "format": "date-time" }
+          },
+          "required": ["status", "evidenceLevel", "source", "observedAt"]
+        },
+        {
+          "properties": {
+            "status": { "enum": ["UNKNOWN", "N/A"] },
+            "evidenceLevel": { "const": "E0" },
+            "source": { "const": null },
+            "observedAt": { "const": null }
+          },
+          "required": ["status", "evidenceLevel", "source", "observedAt"]
+        },
+        {
+          "properties": {
+            "status": { "enum": ["UNKNOWN", "N/A"] },
+            "evidenceLevel": { "const": "E0" },
+            "source": { "type": "string", "minLength": 1 },
+            "observedAt": { "type": "string", "format": "date-time" }
+          },
+          "required": ["status", "evidenceLevel", "source", "observedAt"]
+        }
+      ]
+    },
+    "evidenceSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["liveSamples", "staticChecks"],
+      "properties": { "liveSamples": { "type": "integer" }, "staticChecks": { "type": "integer" } }
+    }
+  }
+}
