@@ -24,12 +24,12 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 - `prd` — Write down what you're building, for whom, and when it's done — before building it.
 - `refactor` — Tidy up code so it's easier to read and grow, without changing what it does.
 - `security` — Check your API endpoints for security holes and lock them down.
-- `seo` — Grow organic search traffic on evidence: audit what Google actually sees, plan it, then keep improving and re-measuring until the pages are indexed and earning.
+- `seo` — Say seo and it takes organic search from wherever it is to the top — audits what Google really sees, plans it, fixes the technical layer, and keeps measuring.
 - `skills` — How to write a good skill — clear triggers, concrete steps, a real finish line.
 - `tdd` — Write the failing test first, make it pass, then clean up.
 
 ---
 
-Mirrored from `harness-kit/skills/` in dockialabs (`@281f311`) — **don't edit here**; edit upstream
+Mirrored from `harness-kit/skills/` in dockialabs (`@2028cd6`) — **don't edit here**; edit upstream
 and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
