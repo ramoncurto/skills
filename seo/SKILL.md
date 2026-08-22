@@ -22,12 +22,30 @@ Read the project's cost/infra rules (CLAUDE.md, cost ledger) first; they bound e
 Anything that needs a human (design/UX, content, a migration, a cost or product decision) is collected into a "needs you" list at the end — keep
 going with everything else. Read-only work never needs permission; deploys, publishing and emails are never done by this skill.
 
+## The green board — what "all of GSC green" means
+Every report, its source, and the bar. `node $S/gsc.mjs green --days 28 --urls <sample> --md` prints it; anything the API can't prove is reported
+**UNKNOWN, never green** — open those in the signed-in GSC tab and record the numbers.
+
+| Report | Source | Green when |
+|---|---|---|
+| Sitemaps | API | submitted, 0 errors, downloaded recently, only canonical indexable URLs |
+| Page indexing | UI (no API) | every URL you *chose* to publish is indexed; "crawled/discovered – not indexed", duplicates, soft-404 and 5xx trending to zero; `noindex`/redirect counts are intentional and explainable |
+| URL inspection sample | API (≤2,000/day) | verdict PASS, Google's canonical = yours, crawled recently, no rich-result issues |
+| Enhancements (Events/Products/Breadcrumbs…) | UI + per-URL via API | 0 invalid items; warnings only where the field is genuinely unknown |
+| Core Web Vitals | UI / CrUX | all three metrics pass at p75 on mobile and desktop (or "not enough data" — say so) |
+| Crawl stats | UI | 200s dominate, no 5xx cluster, response time stable, crawl spent on pages that can earn |
+| Manual actions & Security | UI | empty — check on every audit |
+| Performance | API | no collapse days, and the query board below moving in the right direction |
+| Links | UI | referring domains growing; no unexplained loss |
+
 ## P1 — Audit & plan
-1. **Baseline from Search Console, never from opinion**: `node $S/gsc.mjs sites` · `performance --days 90 --dimensions date --md` (trend, anomaly
-   days) · `performance --days 90 --dimensions query --limit 50 --md` · `top-pages --days 90 --limit 1000 --csv` (grandfathering list) ·
-   `funnel --days 28 --md` (clicks/impressions/CTR/position/pages per template × locale) · `sitemaps --md` · `inspect --urls <top-50 + 20 random
-   indexable + 10 hubs> --md`. **No API** for Page-indexing totals, Crawl stats, CWV, Enhancements → read them from the signed-in Chrome tab (close
-   it after) or estimate from the inspect sample and say so. The #1 click page is often already noindex or redirected — check it explicitly.
+1. **Baseline from Search Console, never from opinion**: `node $S/gsc.mjs sites` · `green --days 28 --urls <sample> --md` (the board above) ·
+   `performance --days 90 --dimensions date --md` (trend, collapse days) · `performance --days 90 --dimensions query --limit 50 --md` ·
+   `top-pages --days 90 --limit 1000 --csv` (grandfathering list) · `funnel --days 28 --md` (per template × locale) · `sitemaps --md` ·
+   `inspect --urls <top-50 + 20 random indexable + 10 hubs> --md`. Then the **query board**: `opportunities` (position 2.5–20 ranked by click
+   upside), `ctr-gaps` (top-10 positions clicked far below their rank → snippet/format problem, not ranking), `cannibalization` (one query →
+   several of our URLs), `movers --days 28` (gained / lost / disappeared vs the previous window). Read the UI-only reports in the signed-in tab
+   (close it after). The #1 click page is often already noindex or redirected — check it explicitly.
 2. **Measure templates as Googlebot**: `bash $S/fetch-as-googlebot.sh https://site out/ "" hub-path item-path` then `node $S/measure-page.mjs
    out/<f>.html`. Name the mechanism: "70 % framework payload, 1.5 % text" is payload/cost; "60 unique words/page" is content.
 3. **Exposure vs reality**: sitemap URLs by type/locale vs URLs Google knows. A 10×+ gap = internal links or hreflang exposing variants the sitemap
@@ -41,8 +59,10 @@ going with everything else. Read-only work never needs permission; deploys, publ
    owner lanes and cost notes, sequencing, "what not to do". Never propose shorter cache windows, per-commit deploys, or new high-cardinality routes.
 
 ## P2 — Measure & decide (weekly cadence)
-7. **Funnel + anomalies**: `funnel --days 28`, `performance --days 28 --dimensions date` (flag any day < 50 % of the 7-day median), `top-pages`.
-   Clicks per indexed URL, and with the cost monitor clicks per 1,000 origin invocations. Compare to last week and to the plan's rung.
+7. **Board + funnel + query movement**: `green --days 28 --urls <sample>` (any row that left GREEN is this week's first job) · `funnel --days 28` ·
+   `movers --days 28` (and `--dimensions page`) — *disappeared* queries/pages are usually pages that went noindex, expired or lost their canonical,
+   not lost rankings · `opportunities` and `ctr-gaps` to pick the week's wins · `cannibalization` before creating any new page for a query we already
+   rank for. Clicks per indexed URL, and with the cost monitor clicks per 1,000 origin invocations. Compare to last week and to the plan's rung.
 8. **Verdicts**: `inspect --urls <top-20 clicks + 20 enriched + 20 new-family + 10 hubs> --max 200` — verdict, coverage, canonical_ok (Google choosing
    another host/URL = bug), crawl age, rich-result issues. Flag pages that flipped to noindex/redirect and hubs uncrawled > 60 days.
 9. **Integrity + health**: sitemap ⊆ indexable set, no links to noindex URLs, hreflang reciprocal, `lastmod` moving only on real change; notify
@@ -69,6 +89,7 @@ going with everything else. Read-only work never needs permission; deploys, publ
     scorecard/runner to make a check pass, publish content, or send email.
 
 ## Done when
-The phase chain the autopilot picked has run to completion and the user has one report: what was measured (numbers, not adjectives), what changed
-(commits/PR, each with its score delta), what was decided per cohort, and the "needs you" list — with no guardrail failing in a kept state, the
-project's own check gate green, and nothing deployed, published or emailed.
+The phase chain the autopilot picked has run to completion and the user has one report: the **green board** with every row either GREEN or an
+explicit RED/UNKNOWN plus its owner, the **query board** (biggest upside, worst CTR gaps, cannibalised queries, what moved and what disappeared),
+what changed (commits/PR, each with its score delta), what was decided per cohort, and the "needs you" list — with no guardrail failing in a kept
+state, the project's own check gate green, and nothing deployed, published or emailed.
