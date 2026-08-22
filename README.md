@@ -24,11 +24,14 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 - `prd` — Write down what you're building, for whom, and when it's done — before building it.
 - `refactor` — Tidy up code so it's easier to read and grow, without changing what it does.
 - `security` — Check your API endpoints for security holes and lock them down.
+- `seo-autoresearch` — Autonomous keep/revert loop that improves a site's technical SEO and indexability against a deterministic scorecard, without bleeding infra cost — no content, no publishing, no email.
+- `seo-visibility-audit` — Evidence-based SEO visibility audit of any site: Search Console numbers, pages as Googlebot sees them, index/crawl verdicts, then a prioritised TODO plan.
+- `seo-visibility-loop` — Weekly measure-and-decide loop that keeps a site's pages indexed, crawled efficiently and earning clicks — the operating cadence behind an SEO visibility plan.
 - `skills` — How to write a good skill — clear triggers, concrete steps, a real finish line.
 - `tdd` — Write the failing test first, make it pass, then clean up.
 
 ---
 
-Mirrored from `harness-kit/skills/` in dockialabs (`@ef346bd`) — **don't edit here**; edit upstream
+Mirrored from `harness-kit/skills/` in dockialabs (`@4bfbea6`) — **don't edit here**; edit upstream
 and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
