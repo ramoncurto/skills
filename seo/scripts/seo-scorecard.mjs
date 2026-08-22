@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// seo-scorecard.mjs — deterministic technical-SEO scorecard: the experiment runner behind /seo-autoresearch.
+// seo-scorecard.mjs — deterministic technical-SEO scorecard: the experiment runner behind /seo mode C (autoresearch keep/revert).
 // It never changes anything; it measures the working tree (static checks) and/or a live/preview site (live checks)
 // and prints a score you can keep/revert against.
 //
