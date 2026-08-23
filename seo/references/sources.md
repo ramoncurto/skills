@@ -1,6 +1,6 @@
 # Official SEO and GEO sources
 
-Verified 2026-08-22. Source hierarchy: these first-party sources outrank practitioner advice and
+Verified 2026-08-23. Source hierarchy: these first-party sources outrank practitioner advice and
 local heuristics. Policy and crawler advice must be re-checked against the first-party source before
 acting; a source date is not evidence that a particular site will receive an outcome.
 
@@ -12,7 +12,18 @@ acting; a source date is not evidence that a particular site will receive an out
 | Google Search | https://developers.google.com/search/docs/advanced/crawling/managing-multi-regional-sites | Separate international URLs, reciprocal hreflang, and x-default guidance | 2026-08-22 |
 | Google Search | https://developers.google.com/search/docs/appearance/structured-data/sd-policies | Structured data must represent visible content and follow feature policies | 2026-08-22 |
 | Google Search | https://developers.google.com/search/docs/fundamentals/creating-helpful-content | People-first content and original value guidance | 2026-08-22 |
-| Google Search | https://developers.google.com/search/docs/essentials/spam-policies | Scaled-content-abuse and other spam-policy boundaries | 2026-08-22 |
+| Google Search | https://developers.google.com/search/docs/essentials/spam-policies | Scaled-content-abuse, manipulated traffic, and link-scheme boundaries | 2026-08-23 |
+| Google Search | https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl | Recrawl requests and their limits | 2026-08-23 |
+| Google Search Console | https://support.google.com/webmasters/answer/9012289?hl=en | URL Inspection and Request indexing workflow | 2026-08-23 |
+| Google Search Console | https://support.google.com/webmasters/answer/7440203?hl=en | Page Indexing report and issue validation | 2026-08-23 |
+| Google Search | https://developers.google.com/search/docs/crawling-indexing/links-crawlable | Crawlable link requirements | 2026-08-23 |
+| Google Search | https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap | Sitemap construction and canonical URL selection | 2026-08-23 |
+| Google Search Central | https://developers.google.com/search/blog/2023/06/sitemaps-lastmod-ping | Sitemap ping retirement and truthful lastmod guidance | 2026-08-23 |
+| Google Crawling | https://developers.google.com/crawling/docs/crawl-budget | Crawl budget, demand, and capacity | 2026-08-23 |
+| Google Search | https://developers.google.com/search/docs/crawling-indexing/troubleshoot-crawling-errors | Crawling-error diagnosis | 2026-08-23 |
+| Google Search | https://developers.google.com/search/apis/indexing-api/v3/using-api | Indexing API restrictions for JobPosting and BroadcastEvent | 2026-08-23 |
+| Google Search | https://developers.google.com/search/apis/indexing-api/v3/quota-pricing | Indexing API approval, quota, and pricing limits | 2026-08-23 |
+| Google Search Console | https://support.google.com/webmasters/answer/34592?hl=en | Domain and URL-prefix property types; URL-prefix literal matching | 2026-08-23 |
 | Google Search | https://developers.google.com/webmaster-tools/v1/searchanalytics/query | Search Analytics API fields and top-row limits | 2026-08-22 |
 | Google Search | https://support.google.com/webmasters/answer/12918484?hl=en | Current Search Console bulk export to BigQuery | 2026-08-22 |
 | Google Search | https://support.google.com/webmasters/answer/16908024?hl=en | Generative AI search controls | 2026-08-22 |

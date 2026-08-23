@@ -98,6 +98,26 @@ test('live scorecard fails a noindex sample even when no sitemap is configured',
   assert.notEqual(result.status, 0, `a live noindex page must fail closed\n${result.stdout}\n${result.stderr}`);
 });
 
+test('live scorecard records cache headers from curl header dumps', async (t) => {
+  const dir = await tempDir(t);
+  const base = await startServer(t, (request, response) => {
+    const origin = `http://${request.headers.host}`;
+    response.writeHead(200, { 'cache-control': 'public, max-age=60', etag: '"fixture"', 'content-type': 'text/html' });
+    response.end(`<!doctype html><html><head><link rel="canonical" href="${origin}/page"><meta name="robots" content="index, follow"></head><body><main><h1>Page</h1>Useful content</main></body></html>`);
+  });
+  const out = join(dir, 'out');
+  const config = join(dir, 'scorecard.json');
+  await writeJson(config, { base, out, samples: [{ path: '/page', template: 'page' }] });
+
+  const result = await runNode(scorecard, ['--config', config, '--live-only']);
+  const artifact = JSON.parse(await readFile(join(out, 'latest.json'), 'utf8'));
+  const cacheCheck = artifact.checks.find((check) => /cache evidence/.test(check.name));
+
+  assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
+  assert.equal(cacheCheck?.status, 'PASS');
+  assert.equal(cacheCheck?.detail, 'cache-control=public, max-age=60');
+});
+
 test('scorecard ordinary failed checks exit nonzero instead of emitting a passing process status', async (t) => {
   const dir = await tempDir(t);
   const config = join(dir, 'scorecard.json');

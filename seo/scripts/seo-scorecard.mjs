@@ -125,7 +125,14 @@ if (args.compare) {
   const priorValidation = validateArtifact(comparisonPrevious, schema);
   if (!priorValidation.valid) die(`invalid compare artifact: ${priorValidation.errors.map((error) => `${error.pointer} ${error.message}`).join('; ')}`);
 }
-function curl(url, prefix) { const headers = `${prefix}.headers`, body = `${prefix}.html`; const r = spawnSync('curl', ['-sS', '-L', '--compressed', '--connect-timeout', String(Math.min(10, TIMEOUT)), '--max-time', String(TIMEOUT), '--retry', '2', '--retry-all-errors', '-A', UA, '-D', headers, '-o', body, '-w', '%{http_code} %{num_redirects} %{url_effective}', url], { encoding: 'utf8' }); const [code, redirects, finalUrl] = (r.stdout || '').trim().split(' '); const raw = existsSync(headers) ? readFileSync(headers, 'utf8') : '', block = raw.trim().split(/\r?\n\r?\n/).pop() || ''; return { code: Number(code), redirects: Number(redirects), finalUrl, html: existsSync(body) ? readFileSync(body, 'utf8') : '', headers: Object.fromEntries([...block.matchAll(/^([^:]+):\s*(.*)$/gm)].map((m) => [m[1].toLowerCase(), m[2]])), error: r.error?.message || (r.status ? r.stderr : '') }; }
+function parseCurlHeaders(raw) {
+  const block = raw.trim().split(/\r?\n\r?\n/).pop() || '';
+  return Object.fromEntries(block.split(/\r?\n/).flatMap((line) => {
+    const separator = line.indexOf(':');
+    return separator > 0 ? [[line.slice(0, separator).trim().toLowerCase(), line.slice(separator + 1).trim()]] : [];
+  }));
+}
+function curl(url, prefix) { const headers = `${prefix}.headers`, body = `${prefix}.html`; const r = spawnSync('curl', ['-sS', '-L', '--compressed', '--connect-timeout', String(Math.min(10, TIMEOUT)), '--max-time', String(TIMEOUT), '--retry', '2', '--retry-all-errors', '-A', UA, '-D', headers, '-o', body, '-w', '%{http_code} %{num_redirects} %{url_effective}', url], { encoding: 'utf8' }); const [code, redirects, finalUrl] = (r.stdout || '').trim().split(' '); const raw = existsSync(headers) ? readFileSync(headers, 'utf8') : ''; return { code: Number(code), redirects: Number(redirects), finalUrl, html: existsSync(body) ? readFileSync(body, 'utf8') : '', headers: parseCurlHeaders(raw), error: r.error?.message || (r.status ? r.stderr : '') }; }
 const xmlName = /^[A-Za-z_][A-Za-z0-9_.:-]*$/;
 const localXmlName = (name) => name.slice(name.lastIndexOf(':') + 1).toLowerCase();
 const decodeXmlText = (text) => String(text).replace(/&(amp|lt|gt|quot|apos);|&#(\d+);|&#x([0-9a-f]+);/gi, (match, named, decimal, hexadecimal) => {

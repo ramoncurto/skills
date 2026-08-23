@@ -36,25 +36,26 @@ diagnostics and label official requirements separately from hypotheses.
 
 ## Steps
 
-1. Read `references/evidence-contract.md`, then record readiness fields, evidence level, source,
+1. For new or changed URLs, indexing lag, “Discovered/Crawled—currently not indexed,” or acceleration requests, read `references/google-indexing-protocol.md` and use `scripts/indexing-plan.mjs`; never infer submission authority or use a generic indexing API.
+2. Read `references/evidence-contract.md`, then record readiness fields, evidence level, source,
    cohort, denominator, date, owner, and UNKNOWNs. Do not promote a lower evidence level to a
    search or business outcome.
-2. Use `references/seo-playbook.md` to assess technical eligibility plus intent fit, non-commodity
+3. Use `references/seo-playbook.md` to assess technical eligibility plus intent fit, non-commodity
    value, firsthand/expert evidence, entity/author trust, internal discovery, authority/mentions,
    distribution, conversion/retention, experimentation, and cannibalization controls.
-3. Fetch source HTML only as a diagnostic; use Search Console URL Inspection or equivalent rendered
+4. Fetch source HTML only as a diagnostic; use Search Console URL Inspection or equivalent rendered
    evidence for Google-observed claims. The Search Console API returns top rows and may truncate;
    mark completeness and never infer zero from empty rows. For exhaustive history use bulk export.
-4. Apply `references/geo-controls.md`: Google generative AI controls/report, Bing AI Performance
+5. Apply `references/geo-controls.md`: Google generative AI controls/report, Bing AI Performance
    (intents, topics, citation share), separate bot controls, and the access-to-retention funnel.
    Keep OAI-SearchBot versus GPTBot, PerplexityBot versus Perplexity-User, and ClaudeBot/Claude-SearchBot versus Claude-User distinct.
    Measure crawler access -> eligibility/indexing -> impressions/visibility -> citation -> referral -> conversion/retention with denominators.
    Do not change bot access or claim special AI schema, chunking, or `llms.txt` effects without
    official evidence and approval. Track ChatGPT referral UTMs by dated cohort.
-5. For substantial audits/remediation, Sol Ultra directs and performs the final non-author review;
+6. For substantial audits/remediation, Sol Ultra directs and performs the final non-author review;
    Terra and Luna execute bounded, disjoint briefs. Executors do not broaden scope, change policy,
    commit, push, deploy, or claim completion; the root/integrator owns merge and gates.
-6. Report evidence level, verdict, delta, limitations, UNKNOWNs, and approval-gated next actions;
+7. Report evidence level, verdict, delta, limitations, UNKNOWNs, and approval-gated next actions;
    keep tiny read-only queries un-orchestrated when no change or broad audit is needed.
 
 ## Done when

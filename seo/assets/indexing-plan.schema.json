@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SEO indexing plan input v1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["inputKind", "contractVersion", "exampleOnly", "property", "asOf", "sitemapSubmitted", "crawlHealth", "urls"],
+  "properties": {
+    "inputKind": { "const": "indexing-plan-input" },
+    "contractVersion": { "const": "seo-indexing-plan/v1.1" },
+    "exampleOnly": { "type": "boolean" },
+    "property": { "type": "string", "minLength": 1 },
+    "asOf": { "type": "string", "format": "date-time" },
+    "sitemapSubmitted": { "$ref": "#/$defs/claim" },
+    "crawlHealth": { "$ref": "#/$defs/claim" },
+    "urls": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/urlRecord" } }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidenceLevel", "source", "observedAt", "detail"],
+      "properties": {
+        "status": { "enum": ["PASS", "FAIL", "UNKNOWN", "N/A"] },
+        "evidenceLevel": { "enum": ["E0", "E1", "E2", "E3", "E4", "E5", "E6"] },
+        "source": { "type": ["string", "null"], "minLength": 1 },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "detail": { "type": "string", "minLength": 1, "pattern": "\\S" }
+      }
+    },
+    "engineIndexed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidenceLevel", "source", "observedAt", "detail", "googleState"],
+      "properties": {
+        "status": { "enum": ["PASS", "FAIL", "UNKNOWN", "N/A"] },
+        "evidenceLevel": { "enum": ["E0", "E1", "E2", "E3", "E4", "E5", "E6"] },
+        "source": { "type": ["string", "null"], "minLength": 1 },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "detail": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "googleState": { "enum": ["UNKNOWN", "UNKNOWN_TO_GOOGLE", "DISCOVERED_NOT_CRAWLED", "CRAWLED_NOT_INDEXED", "INDEXED", "BLOCKED", "DUPLICATE", "REDIRECT", "ERROR"] }
+      }
+    },
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "evidenceLevel", "source", "observedAt", "detail"],
+      "properties": {
+        "state": { "enum": ["NOT_REQUESTED", "REQUEST_QUEUED", "VALIDATION_STARTED", "VALIDATION_PASSED", "VALIDATION_FAILED", "UNKNOWN"] },
+        "evidenceLevel": { "enum": ["E0", "E1", "E2", "E3", "E4", "E5", "E6"] },
+        "source": { "type": ["string", "null"], "minLength": 1 },
+        "observedAt": { "type": ["string", "null"], "format": "date-time" },
+        "detail": { "type": "string", "minLength": 1, "pattern": "\\S" }
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["declaredIndexable", "httpFetchable", "renderedContent", "canonicalConsistent", "internalDiscoverable", "sitemapListed", "lastmodAccurate", "engineIndexed"],
+      "properties": {
+        "declaredIndexable": { "$ref": "#/$defs/claim" },
+        "httpFetchable": { "$ref": "#/$defs/claim" },
+        "renderedContent": { "$ref": "#/$defs/claim" },
+        "canonicalConsistent": { "$ref": "#/$defs/claim" },
+        "internalDiscoverable": { "$ref": "#/$defs/claim" },
+        "sitemapListed": { "$ref": "#/$defs/claim" },
+        "lastmodAccurate": { "$ref": "#/$defs/claim" },
+        "engineIndexed": { "$ref": "#/$defs/engineIndexed" }
+      }
+    },
+    "urlRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "role", "priority", "claims", "submission"],
+      "properties": {
+        "url": { "type": "string", "minLength": 1 },
+        "role": { "enum": ["homepage", "hub", "detail"] },
+        "priority": { "enum": ["P0", "P1", "P2"] },
+        "claims": { "$ref": "#/$defs/claims" },
+        "submission": { "$ref": "#/$defs/submission" }
+      }
+    }
+  }
+}

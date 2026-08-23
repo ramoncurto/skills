@@ -1,0 +1,89 @@
+{
+  "inputKind": "indexing-plan-input",
+  "contractVersion": "seo-indexing-plan/v1.1",
+  "exampleOnly": true,
+  "property": "sc-domain:example.com",
+  "asOf": "2026-08-23T00:00:00Z",
+  "sitemapSubmitted": {
+    "status": "UNKNOWN",
+    "evidenceLevel": "E0",
+    "source": null,
+    "observedAt": null,
+    "detail": "Illustrative rejected template; no sitemap submission was observed."
+  },
+  "crawlHealth": {
+    "status": "UNKNOWN",
+    "evidenceLevel": "E0",
+    "source": null,
+    "observedAt": null,
+    "detail": "Illustrative rejected template; no crawl-health evidence was observed."
+  },
+  "urls": [
+    {
+      "url": "https://example.com/",
+      "role": "homepage",
+      "priority": "P0",
+      "claims": {
+        "declaredIndexable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "httpFetchable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "renderedContent": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "canonicalConsistent": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "internalDiscoverable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "sitemapListed": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "lastmodAccurate": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "engineIndexed": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified.", "googleState": "UNKNOWN" }
+      },
+      "submission": {
+        "state": "UNKNOWN",
+        "evidenceLevel": "E0",
+        "source": null,
+        "observedAt": null,
+        "detail": "Illustrative only; no submission state was observed."
+      }
+    },
+    {
+      "url": "https://example.com/guides/",
+      "role": "hub",
+      "priority": "P1",
+      "claims": {
+        "declaredIndexable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "httpFetchable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "renderedContent": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "canonicalConsistent": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "internalDiscoverable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "sitemapListed": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "lastmodAccurate": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "engineIndexed": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified.", "googleState": "UNKNOWN" }
+      },
+      "submission": {
+        "state": "UNKNOWN",
+        "evidenceLevel": "E0",
+        "source": null,
+        "observedAt": null,
+        "detail": "Illustrative only; no submission state was observed."
+      }
+    },
+    {
+      "url": "https://example.com/guides/example-detail",
+      "role": "detail",
+      "priority": "P2",
+      "claims": {
+        "declaredIndexable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "httpFetchable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "renderedContent": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "canonicalConsistent": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "internalDiscoverable": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "sitemapListed": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "lastmodAccurate": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified." },
+        "engineIndexed": { "status": "UNKNOWN", "evidenceLevel": "E0", "source": null, "observedAt": null, "detail": "Illustrative only; not verified.", "googleState": "UNKNOWN" }
+      },
+      "submission": {
+        "state": "UNKNOWN",
+        "evidenceLevel": "E0",
+        "source": null,
+        "observedAt": null,
+        "detail": "Illustrative only; no submission state was observed."
+      }
+    }
+  ]
+}
