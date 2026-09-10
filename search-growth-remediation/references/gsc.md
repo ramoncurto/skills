@@ -4,7 +4,7 @@ Use the correct verified property/account and canonical production host. If acce
 
 ## Collect enough evidence to decide
 
-Record Page indexing counts and last update; submitted sitemap status/last read; representative URL inspections; robots report; crawl/host status; manual actions/security; HTTPS and field CWV when available. Use performance date ranges and country/query/page cohorts for a baseline. Report top-row/export limits and anonymization; do not call sampled competitor or query data exhaustive. Use an existing Semrush trial only within its available allowance and do not start/renew/upgrade one without explicit approval. Country demand can prioritize existing languages; it does not justify blanket translation expansion.
+Record Page indexing counts and last update; submitted sitemap status/last read; representative URL inspections; robots report; crawl/host status; manual actions/security; HTTPS and field CWV when available. Use performance date ranges and country/query/page cohorts for a baseline. Report top-row/export limits and anonymization; do not call sampled competitor or query data exhaustive. For any Semrush research, follow the [Semrush reference](semrush.md). Country demand can prioritize existing languages; it does not justify blanket translation expansion.
 
 Read a bounded sample from each material exclusion family, including high-value pages. Where necessary, inspect the entire reported error cohort with bounded public requests. Do not fetch an unlimited site inventory merely because the tool permits it.
 

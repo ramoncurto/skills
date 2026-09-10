@@ -5,6 +5,19 @@
   "observedAt": null,
   "requestedTracks": [],
   "existingAuthority": [{"scope": null, "source": null, "limitations": null}],
+  "researchProviders": {
+    "semrush": {
+      "authorizationSource": null,
+      "reportedTrialDurationDays": null,
+      "subscriptionStatus": null,
+      "verifiedEndsAt": null,
+      "observedAt": null,
+      "remainingQuota": null,
+      "availableFeatures": [],
+      "reports": [{"type": null, "database": null, "country": null, "device": null, "reportDate": null, "dateRange": null, "filters": null, "rowLimit": null, "exportLimit": null, "sourceUrl": null, "exportPath": null}],
+      "limitations": []
+    }
+  },
   "baseline": {"sourceRevision": null, "providerReportDates": {}, "metricsAndCohorts": [], "unknowns": []},
   "findings": [{
     "id": null, "track": null, "classification": null, "priority": null,
