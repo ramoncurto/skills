@@ -1,4 +1,4 @@
 interface:
   display_name: "Search Growth Remediation"
   short_description: "Fix GSC, AdSense content and AgentReady issues"
-  default_prompt: "Use $search-growth-remediation to audit this project, fix evidenced GSC, AdSense content and AgentReady issues, and verify every authorized release and provider action."
+  default_prompt: "Use $search-growth-remediation to audit this project, dispatch independent bounded atoms to an available Luna model by default, fix evidenced GSC, AdSense content and AgentReady issues, and verify every authorized release and provider action."

@@ -36,5 +36,5 @@ and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
 
 `search-growth-remediation` was authored by Dockia Labs and synchronized from
-[`dockialabs@c051da4`](https://github.com/ramoncurto/dockialabs/commit/c051da43190122d7a073fa33b4bc6d4266da7cbd).
+[`dockialabs@af2cc42`](https://github.com/ramoncurto/dockialabs/commit/af2cc42aa3dcde8ac6f261f26b0d2805483aa6aa).
 This scoped publication preserves all existing skill files; their prior mirror provenance remains unchanged.

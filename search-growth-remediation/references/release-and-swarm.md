@@ -2,6 +2,12 @@
 
 Discover repository rules, package/runtime versions, required checks, provider tools and release conventions. Do not import project-specific commands, locale counts, domains, app IDs or deadlines from previous runs. If another relevant skill is installed, read it once and reuse its contract rather than copying its entire implementation.
 
+## Default executor and quota discipline
+
+Default independent bounded executors to an available Luna model (currently `gpt-5.6-luna` when advertised), unless the user explicitly chooses another model. Do not invent model IDs or silently launch a premium-model swarm when Luna is unavailable: disclose that, do small bounded work locally, and choose or escalate only a concrete difficult atom when warranted and allowed.
+
+Use low or medium worker reasoning for routine atoms when the runtime supports it; increase effort only for a concrete difficult case instead of inheriting the director’s maximum setting. Keep context to the minimum relevant files, write compact no-decisions briefs, limit concurrency to independent tasks and runtime capacity, reuse suitable workers, and avoid redundant full-history forks, repeated agent reports or full gates. Skip a swarm for trivial one-line work; retain the required focused checks and project gate. Never claim quota savings without usage evidence. Workers return ambiguity or scope decisions to the director instead of expanding their task or spawning more agents. Reusing SEO, audit or review guidance keeps this model allocation; retain required independent review and director-owned final acceptance.
+
 ## Isolate first
 
 Record the current branch/base, staged/unstaged/untracked WIP and other active worktrees. Use a separate checkout when unrelated or concurrent WIP would contaminate the candidate. Preserve a reconciliation receipt when an agent wrote into the wrong cwd; only restore bytes proven to be owned by that agent and initially clean. Never clean another task's branch, force-reset dirty main, or stash ongoing work blindly.
