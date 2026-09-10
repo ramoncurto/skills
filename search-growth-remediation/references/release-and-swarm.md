@@ -49,8 +49,10 @@ Use one coherent ordered ledger: local fixes/checks → independent review → a
 
 Tie production to the actual revision using provider deployment metadata or a verified commit-status/deployment/alias chain. Recheck the changed pages and representative siblings on production. Preserve remaining intentional warnings and distinguish a heuristic warning from a failed contract.
 
+Each released batch is an iteration, not the overall finish line. Reconcile all remaining findings and explicit targets after provider readback, then continue the next actionable batch without asking whether to proceed. Worker completion, a clean review, green CI, branch cleanup or a higher score cannot close the parent's remaining obligations. A blocked item must not stop independent fixes. Apply project file/time caps per batch; split work and continue instead of treating those caps as permission to abandon the requested result.
+
 Advance main and remove only the task branch/worktree after verifying ancestry and preserving unrelated WIP. If local documents overlap, reconcile their entries with explicit before/after evidence; never drop another task's log. Record any preservation blocker rather than saying cleanup succeeded.
 
 ## Final receipt
 
-State the concrete result early. Include the release/revision, meaningful verification, actual scanner score and provider state, bounded content findings, unresolved conditions and one next action per external wait. Keep the user-facing answer concise and link the full evidence record. No “fully fixed” claim when the requested external outcome remains unobserved.
+Issue the successful final receipt only after the skill's overall completion contract is met. If the work cannot advance because of an evidenced external dependency or missing authority, issue an incomplete/blocker receipt after finishing all other authorized work; documenting a backlog alone is not a stopping condition. State the concrete result early. Include the release/revision, meaningful verification, actual scanner score and provider state, bounded content findings, unresolved conditions and one next action per external wait. Keep the user-facing answer concise and link the full evidence record. No “fully fixed” claim when the requested external outcome remains unobserved.
