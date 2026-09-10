@@ -1,0 +1,27 @@
+{
+  "recordKind": "search-growth-remediation",
+  "templateOnly": true,
+  "project": {"repository": null, "productionOrigin": null, "canonicalHost": null, "locales": [], "property": null},
+  "observedAt": null,
+  "requestedTracks": [],
+  "existingAuthority": [{"scope": null, "source": null, "limitations": null}],
+  "baseline": {"sourceRevision": null, "providerReportDates": {}, "metricsAndCohorts": [], "unknowns": []},
+  "findings": [{
+    "id": null, "track": null, "classification": null, "priority": null,
+    "observedDefect": null, "evidence": [{"layer": null, "source": null, "observedAt": null, "scope": null}],
+    "scannerItem": {"checkIdOrName": null, "reportUrl": null, "profile": null, "capturedAt": null, "copiedPrompt": null, "auditDetails": null, "testedEndpoint": null, "expectedResult": null, "observedResult": null, "linkedSkillUrl": null, "primaryDocs": []},
+    "owner": null, "ownedFiles": [], "acceptance": null,
+    "before": null, "fix": null, "after": null, "status": null,
+    "externalCondition": null, "nextAction": null
+  }],
+  "verification": {"frozenPathsOrRevision": null, "commandsAndResults": [], "review": null, "browser": [], "production": []},
+  "release": {"commit": null, "pullRequest": null, "ci": null, "mergedRevision": null, "productionDeployment": null, "aliasRevisionProof": null, "cleanup": null, "preservedWork": null},
+  "providerActions": [{"provider": null, "target": null, "authority": null, "prerequisites": null, "submittedAt": null, "queueAcknowledgement": null, "finalState": null}],
+  "outcomes": {
+    "agentReady": {"profile": null, "interface": null, "score": null, "denominator": null, "observedAt": null, "unresolvedChecks": []},
+    "gsc": {"requested": [], "discovered": [], "crawled": [], "indexed": [], "impressionComparison": null},
+    "adsense": {"exactReason": null, "contentRemediationScope": null, "providerDecision": null, "observedAt": null}
+  },
+  "externalWaits": [{"condition": null, "safeAfter": null, "evidenceForTiming": null, "owner": null, "scheduledOnlyIfAuthorized": null}],
+  "completion": {"controllableWork": null, "requestedOverallOutcome": null, "remaining": []}
+}

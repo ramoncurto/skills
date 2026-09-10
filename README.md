@@ -23,6 +23,7 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 - `parallel` — Split a big task across several agents working at once, then stitch the results together.
 - `prd` — Write down what you're building, for whom, and when it's done — before building it.
 - `refactor` — Tidy up code so it's easier to read and grow, without changing what it does.
+- `search-growth-remediation` — Diagnose and fix GSC issues, AdSense content readiness and AgentReady failures, with verified releases and provider evidence.
 - `security` — Check your API endpoints for security holes and lock them down.
 - `seo` — Say seo and it takes organic search from wherever it is to the top — audits what Google really sees, plans it, fixes the technical layer, and keeps measuring.
 - `skills` — How to write a good skill — clear triggers, concrete steps, a real finish line.
@@ -33,3 +34,7 @@ npx skills@latest add ramoncurto/skills --all -p     # project-level (./.claude/
 Mirrored from `harness-kit/skills/` in dockialabs (`@1b29756`) — **don't edit here**; edit upstream
 and re-run `harness-kit/scripts/publish-skills.mjs`. Skills derive from
 [mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
+
+`search-growth-remediation` was authored by Dockia Labs and synchronized from
+[`dockialabs@c051da4`](https://github.com/ramoncurto/dockialabs/commit/c051da43190122d7a073fa33b4bc6d4266da7cbd).
+This scoped publication preserves all existing skill files; their prior mirror provenance remains unchanged.
