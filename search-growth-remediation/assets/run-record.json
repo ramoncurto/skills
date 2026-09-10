@@ -4,6 +4,7 @@
   "project": {"repository": null, "productionOrigin": null, "canonicalHost": null, "locales": [], "property": null},
   "observedAt": null,
   "requestedTracks": [],
+  "finishLine": {"mode": null, "requestedDeliverable": null, "requiredFindingIds": [], "explicitTargets": [{"track": null, "metric": null, "target": null, "profile": null, "denominator": null, "requiredEvidenceLayer": null}], "userAuthorizedScopeChanges": []},
   "existingAuthority": [{"scope": null, "source": null, "limitations": null}],
   "researchProviders": {
     "semrush": {
@@ -36,5 +37,6 @@
     "adsense": {"exactReason": null, "contentRemediationScope": null, "providerDecision": null, "observedAt": null}
   },
   "externalWaits": [{"condition": null, "safeAfter": null, "evidenceForTiming": null, "owner": null, "scheduledOnlyIfAuthorized": null}],
-  "completion": {"controllableWork": null, "requestedOverallOutcome": null, "remaining": []}
+  "iterations": [{"id": null, "findingIds": [], "releaseRevision": null, "verificationEvidence": [], "providerReadback": null, "remainingFindingIds": [], "nextAction": null}],
+  "completion": {"controllableWork": null, "requestedOverallOutcome": null, "doneSignalMet": null, "remaining": [], "unmetTargets": [], "stopReason": null, "blockerEvidence": [], "attemptedSafeRemedies": [], "blockerOwner": null, "resumeCondition": null}
 }

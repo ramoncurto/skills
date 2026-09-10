@@ -18,7 +18,7 @@ Expand each item's **Audit details** and use **Copy prompt** to capture the item
 
 ## Authentication applicability
 
-If the project has no protected API, document that fact and check the scanner's applicability logic. Do not publish fake issuer/token/JWKS URLs, password grants, meaningless protected-resource metadata or fake registration instructions for points. If the user deliberately wants a new real agent service, establish its useful product purpose and authorized scope before expanding the design. Use existing safe auth boundaries or a properly isolated issuer; enabling shared-provider OAuth can expose other projects through shared tokens/policies. Test ownership, scope enforcement, expiry/revocation and any advertised human claim or deletion flow. Keep core public content public unless the product explicitly requires otherwise.
+If the project has no protected API, document that fact and check the scanner's applicability logic. Do not publish fake issuer/token/JWKS URLs, password grants, meaningless protected-resource metadata or fake registration instructions for points. A missing capability does not itself justify abandoning an explicit score target. Establish a useful product purpose and the available authority for a real service; use existing session scope to make routine design decisions, and identify any concrete missing authority while continuing independent fixes. Use existing safe auth boundaries or a properly isolated issuer; enabling shared-provider OAuth can expose other projects through shared tokens/policies. Test ownership, scope enforcement, expiry/revocation and any advertised human claim or deletion flow. Keep core public content public unless the product explicitly requires otherwise.
 
 ## DNS and provider operations
 
@@ -34,7 +34,9 @@ Compare origin, production alias, canonical redirects and publicly served conten
 
 ## Reaching the target
 
-Retest each implemented capability locally, then on the exact production deployment, and finally with the same live scanner profile. Correct all applicable owned failures. The requested 10/10 or 100% is achieved only when that profile actually returns it. Retain any inapplicability discrepancy or external failure rather than shrinking the denominator or inventing a score. Google/AdSense outcomes remain separate.
+Retest each implemented capability locally, then on the exact production deployment, and finally with the same live scanner profile. After each rescan, map every remaining failure to its evidence, next fix and owner, then execute the next authorized batch. A move from 20 to 27 on a requested 100-point target is progress only; it must trigger continued remediation, not a completion receipt. Keep the original profile, denominator and numeric target unless the user explicitly changes them.
+
+Correct all required owned failures and repeat until the requested 10/10 or 100% is actually returned by that profile. Retain any inapplicability discrepancy or external failure rather than shrinking the denominator or inventing a score. If the scanner is unavailable, retain the unverified target and complete every independently verifiable fix; do not present local evidence as a live pass. Stop short only when no authorized action can advance the remaining work and a concrete external dependency or authority boundary is evidenced. Record that as incomplete, with the exact action/condition needed to resume. Google/AdSense outcomes remain separate.
 
 ## Primary specifications to refresh only when applicable
 
